@@ -4,33 +4,68 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/reveal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.1.0/dist/theme/black.css">
     <style>
-        .reveal h1, .reveal h2 { 
-            color: #42affa; 
+        :root {
+            --ucf-gold: #ffcc00;
+            --ucf-black: #181818;
+            --ucf-white: #fff;
+        }
+        body, .reveal {
+            background: var(--ucf-black) !important;
+        }
+        .reveal h1, .reveal h2 {
+            color: var(--ucf-gold);
             text-transform: none;
         }
-        .reveal h3 { 
-            color: #ffffff; 
+        .reveal h3 {
+            color: var(--ucf-white);
             text-transform: none;
         }
         .reveal h4 {
-            color: #42affa;
+            color: var(--ucf-gold);
         }
-        .highlight { color: #42affa !important; font-weight: bold; }
-        .warning { color: #ff6b6b !important; font-weight: bold; }
-        .success { color: #51cf66 !important; }
-        .grade-box { 
-            background: rgba(66, 175, 250, 0.1); 
-            padding: 30px; 
-            border-radius: 10px; 
-            border: 2px solid #42affa;
+        .highlight {
+            color: var(--ucf-gold) !important;
+            font-weight: bold;
         }
-        .two-column { 
-            display: flex; 
+        .warning {
+            color: #ff6b6b !important;
+            font-weight: bold;
+        }
+        .success {
+            color: #51cf66 !important;
+        }
+        .grade-box {
+            background: rgba(255, 204, 0, 0.08);
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid var(--ucf-gold);
+        }
+        .two-column {
+            display: flex;
             gap: 40px;
+            align-items: flex-start;
         }
-        .column { 
-            flex: 1; 
+        .column {
+            flex: 1;
             text-align: left;
+            min-width: 0;
+        }
+        @media (max-width: 900px) {
+            .two-column {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .column {
+                text-align: center;
+            }
+        }
+        /* UCF logo on title slide */
+        .ucf-logo {
+            display: block;
+            margin: 0 auto 18px auto;
+            max-width: 90px;
+            background: #181818;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -39,6 +74,7 @@
         <div class="slides">
             <!-- Slide 1 -->
             <section>
+                <img src="../images/ucf-identity.png" alt="UCF Logo" class="ucf-logo">
                 <h1>Multi Modal Design</h1>
                 <h3>DIG 4633C - Fall 2025</h3>
                 <p>Monday & Wednesday | 3:30-5:20 PM | CMB 165</p>
@@ -47,16 +83,25 @@
 
             <!-- Slide 2 -->
             <section>
-                <h2>Who Am I?</h2>
-                <h3>Dr. John Murray</h3>
-                <ul>
-                    <li>Professor Murray, Dr. Murray, or Professor</li>
-                    <li>Digital Media faculty since 2018</li>
-                    <li>Co-author: Flash: Building the Interactive Web</li>
-                    <li>Co-author: Adventure Games: Playing the Outsider</li>
-                    <li>AR platform startup co-founder</li>
-                </ul>
-                <p style="margin-top: 30px;">Research: How platforms and tools shape creative experiences</p>
+                <div class="two-column">
+                    <div class="column" style="font-size: 0.85em;">
+                        <h2 style="font-size: 2em;">Who Am I?</h2>
+                        <h3 style="font-size: 1.4em;">Dr. John Murray</h3>
+                        <ul>
+                            <li>Professor Murray, Dr. Murray, or Professor</li>
+                            <li>Digital Media faculty since 2018</li>
+                            <li>Co-author: Flash: Building the Interactive Web</li>
+                            <li>Co-author: Adventure Games: Playing the Outsider</li>
+                            <li>AR platform startup co-founder</li>
+                        </ul>
+                        <p style="margin-top: 30px;">Research: How platforms and tools shape creative experiences</p>
+                    </div>
+                    <div class="column" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-width: 220px;">
+                        <h4 style="color: #42affa; margin-bottom: 18px; text-align: center; letter-spacing: 1px; font-size: 1.5em;">BOOK COVERS</h4>
+                        <img src="../images/AdventureGames.jpg" alt="Adventure Games Book Cover" style="max-width: 180px; width: 100%; min-width: 0; margin-bottom: 28px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); background: #222; padding: 6px; object-fit: contain;">
+                        <img src="../images/Flash.jpg" alt="Flash Book Cover" style="max-width: 180px; width: 100%; min-width: 0; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.18); background: #222; padding: 6px; object-fit: contain;">
+                    </div>
+                </div>
             </section>
 
             <!-- Slide 3 -->
@@ -75,18 +120,16 @@
                     <div class="column">
                         <h4>You Will Create</h4>
                         <ul>
-                            <li>Impossible spaces</li>
-                            <li>Emotional environments</li>
+                            <li>Environments</li>
+                            <li>Interactive narratives</li>
                             <li>Motion-captured performances</li>
-                            <li>Social experiences</li>
                         </ul>
                     </div>
                     <div class="column">
                         <h4>You Won't (Necessarily)</h4>
                         <ul>
-                            <li>Write complex code</li>
                             <li>Debug for hours</li>
-                            <li>Build AAA games</li>
+                            <li>Build AAA-quality experiences</li>
                             <li>Master every tool</li>
                         </ul>
                     </div>
@@ -99,7 +142,7 @@
                 <p>VR is no longer niche!</p>
                 <ul>
                     <li><span class="highlight">171 million</span> active VR users worldwide</li>
-                    <li><span class="highlight">Meta Quest 3</span> leading consumer adoption</li>
+                    <li><span class="highlight">Meta Quest 3/3S</span> leading consumer adoption</li>
                     <li><span class="highlight">$67.6 billion</span> market by 2030</li>
                     <li>Applications: Healthcare, Architecture, Social, Education</li>
                 </ul>
@@ -108,14 +151,12 @@
             <!-- Slide 6 -->
             <section>
                 <h2>What Makes This Course Unique</h2>
-                <h3>🎭 OptiTrack Motion Capture</h3>
+                <h3>OptiTrack Motion Capture</h3>
                 <p>Full professional mocap system</p>
-                <h3>🌍 Multiple Platforms</h3>
+                <h3>Multiple Platforms</h3>
                 <p>Unity, VRChat, Horizon Worlds</p>
-                <h3>🤖 AI Integration</h3>
+                <h3>AI Integration</h3>
                 <p>Use AI tools transparently and ethically</p>
-                <h3>💡 Creative Focus</h3>
-                <p>Design-first, not code-first</p>
             </section>
 
             <!-- Slide 7 -->
@@ -130,20 +171,13 @@
                         <li><strong>Attendance & Participation:</strong> 5%</li>
                     </ul>
                 </div>
-                <p class="highlight">No group projects! 🎉</p>
-                <p class="highlight">No weekly journals! 🎉</p>
             </section>
 
             <!-- Slide 8 -->
             <section>
                 <h2>Unity Creative Labs (30%)</h2>
                 <h3>Weekly Creative Challenges</h3>
-                <p><strong>Lab 1: "Impossible Physics"</strong> (7%)<br>
-                Break the rules of reality</p>
-                <p><strong>Lab 2: "Synesthetic Design"</strong> (7%)<br>
-                Mix senses in unexpected ways</p>
-                <p><strong>Lab 3: "Emotional Spaces"</strong> (7%)<br>
-                Design feelings, not just spaces</p>
+                <p><strong>Create with VR Unity, Creative Labs (3)</strong> (7% each)<br></p>
                 <p><strong>Unity Showcase</strong> (9%)<br>
                 Polish your best concept</p>
                 <p class="highlight" style="margin-top: 30px;">Templates provided - creativity required!</p>
@@ -262,7 +296,7 @@
                         </ul>
                     </div>
                 </div>
-                <p style="margin-top: 30px;">Use UCF email OR personal email - your choice!</p>
+                <p style="margin-top: 30px;">Use UCF email OR personal email for Meta Horizon Worlds & VR Chat - your choice!</p>
             </section>
 
             <!-- Slide 15 -->
@@ -275,7 +309,7 @@
                     <li>Grades & feedback</li>
                     <li>Assignment submissions</li>
                 </ul>
-                <h3>Secondary: Microsoft Teams</h3>
+                <h3>Secondary: Discord/Maybe Teams</h3>
                 <ul>
                     <li>Office hours</li>
                     <li>Technical support</li>
@@ -309,7 +343,7 @@
 
             <!-- Slide 17 -->
             <section>
-                <h2>Assignment Schedule</h2>
+                <h2>Assignment Schedule P2</h2>
                 <p class="highlight">All assignments due Thursday 11:59 PM</p>
                 <ul>
                     <li>Week 3: Horizon World (7%)</li>
@@ -317,6 +351,13 @@
                     <li>Week 5: Critique 1 (8%)</li>
                     <li>Week 6: Motion Capture (6%)</li>
                     <li>Week 7: Creative Lab 1 (7%)</li>
+                </ul>
+            </section>
+            <!-- Slide 17 B -->
+            <section>
+                <h2>Assignment Schedule P2</h2>
+                <p class="highlight">All assignments due Thursday 11:59 PM</p>
+                <ul>
                     <li>Week 8: Creative Lab 2 (7%)</li>
                     <li>Week 9: Creative Lab 3 + Critique 2 (19%)</li>
                     <li>Week 10: Unity Showcase (9%)</li>
@@ -329,12 +370,12 @@
             <section>
                 <h2>This Week's Tasks</h2>
                 <div class="grade-box">
-                    <h3 class="warning">By Friday 5:00 PM</h3>
+                    <h3 class="warning">By Friday</h3>
                     <p><strong>Academic Verification Activity</strong></p>
                     <ul style="list-style: none;">
                         <li>✓ Required for financial aid</li>
                         <li>✓ Simple survey on Webcourses</li>
-                        <li>✓ Takes 10 minutes</li>
+                        <li>✓ Takes 10 minutes -- do it now</li>
                     </ul>
                 </div>
                 <h3>Wednesday's Lab</h3>
@@ -349,27 +390,19 @@
                 <h2>Wednesday's Lab Preview</h2>
                 <h3>VR Fundamentals Sampler</h3>
                 <p class="warning">No critique games!</p>
-                <p>We'll try:</p>
-                <ul>
-                    <li>Beat Saber (rhythm/embodiment)</li>
-                    <li>Gravity Sketch (creation)</li>
-                    <li>Horizon Worlds (social)</li>
-                    <li>Nature Treks (comfort)</li>
-                </ul>
-                <p class="warning" style="margin-top: 30px;">Bring headphones! 🎧</p>
+                <p class="warning" style="margin-top: 30px;">Bring headphones!</p>
             </section>
 
             <!-- Slide 20 -->
             <section>
                 <h2>Tips for Success</h2>
                 <ol>
-                    <li><strong>Enable Webcourses notifications</strong> 📱</li>
-                    <li><strong>Organize your hard drive</strong> 💾</li>
-                    <li><strong>Attend class</strong> (5% just for showing up!)</li>
-                    <li><strong>Document everything</strong> 📝</li>
-                    <li><strong>Take VR breaks</strong> 😵</li>
-                    <li><strong>Help each other</strong> 🤝</li>
-                    <li><strong>Embrace weird ideas</strong> 🎨</li>
+                    <li><strong>Enable Webcourses notifications</strong></li>
+                    <li><strong>Bring your hard drive</strong></li>
+                    <li><strong>Attend class</strong></li>
+                    <li><strong>Document everything</strong></li>
+                    <li><strong>Take VR breaks</strong></li>
+                    <li><strong>Be patient (technology will break)</strong></li>
                 </ol>
             </section>
 
@@ -380,7 +413,7 @@
                 Perfect! 45% requires no coding</p>
                 
                 <p><strong>"I get motion sick"</strong><br>
-                We teach comfort techniques, have alternatives</p>
+                We teach comfort techniques, and have alternatives</p>
                 
                 <p><strong>"This seems like a lot"</strong><br>
                 Most work happens in class with support</p>
@@ -393,16 +426,47 @@
             <section>
                 <h1>Let's Create the Future</h1>
                 <h3>One prototype at a time</h3>
-                <p style="margin-top: 40px;">See you Wednesday at 3:30 PM in CMB 165</p>
                 <div class="grade-box" style="margin-top: 30px;">
                     <p>Don't forget:</p>
                     <ul style="list-style: none;">
                         <li>✓ Academic Verification</li>
                         <li>✓ Headphones</li>
-                        <li>✓ Questions</li>
                     </ul>
                 </div>
             </section>
+        
+            <!-- Slide: Sample Experience -->
+            <section style="font-size: 22pt">
+                <h2>Sample Experience: Uncanny Alley - A New Day</h2>
+                <p><a href="https://www.youtube.com/watch?v=1pMIz2Mwo6I" target="_blank" style="color: var(--ucf-gold); font-weight: bold;">Watch Trailer on YouTube</a></p>
+                <h3 style="margin-top: 18px;">About the Experience</h3>
+                <p><strong>Uncanny Alley: A New Day</strong> is an award-winning live VR theater production 
+                    by Ferryman Collective and Virtual Worlds Company. 
+                    This cyberpunk-infused narrative blends gaming interactivity, live performance, and VR, 
+                    challenging audiences to consider the meaning of leaving home.</p>
+                <ul>
+                    <li>Premiered at the 81st Venice International Film Festival (Fanheart3 XR Experience Award)</li>
+                    <li>Performed live with actors embodying 15+ characters</li>
+                    <li>Audience choices shape the story in real time</li>
+                    <li>Explores themes of autonomy, resistance, and identity</li>
+                </ul>
+            </section>
+            <section style="font-size: 22pt">
+                <h4 style="margin-top: 18px; color: var(--ucf-gold);">Narrative Summary</h4>
+                <p style="font-size: 0.95em;">Set in a dystopian future, a group of protesters escapes imprisonment with the help of hacker Gh0st and her sentient Service-Bot, Atom. As they navigate a decaying city controlled by Adaptive Learning Industries, participants must choose whether to flee to a new metaverse or stand and fight for their home. The experience is highly interactive, with audience decisions influencing the journey through dynamic locations and live improvisational performances.</p>
+                <h4 style="margin-top: 18px; color: var(--ucf-gold);">Impact & Innovation</h4>
+                <ul style="font-size: 0.95em;">
+                    <li>Pushes the limits of standalone VR headsets (Meta Quest)</li>
+                    <li>Bridges immersive theater and gaming</li>
+                    <li>Recognized for Best Interactivity/Performance (XR Must 2024)</li>
+                    <li>Praised for global reach and social impact</li>
+                </ul>
+                <p style="margin-top: 18px; font-size: 0.9em; color: #aaa;">Produced by Ferryman Collective & Virtual Worlds Company. Co-created by Stephen Butchko & Rick Treweek.</p>
+            </section>
+ <section data-background-iframe="https://www.youtube.com/embed/1pMIz2Mwo6I?si=K8MgEUGeyXgIZOfD&amp;controls=0" data-background-interactive>
+</section>
+ <section data-background-iframe="https://collection.eliterature.org/4/the-under-presents" data-background-interactive>
+</section>
         </div>
     </div>
 
