@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Week 2: Horizon Worlds & VR Critique</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/black.css">
+  <style>
+    body { background: #181818; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Slides will be injected here by JS -->
+    </div>
+  </div>
+  <script type="module">
+    import Reveal from '/node_modules/reveal.js/dist/reveal.esm.js';
+    import Markdown from '/node_modules/reveal.js/plugin/markdown/markdown.esm.js';
+
+    // Fetch the markdown file and inject slides
+    fetch('./w2-monday-slides.md')
+      .then(response => response.text())
+      .then(md => {
+        const section = document.createElement('section');
+        section.setAttribute('data-markdown', '');
+        section.setAttribute('data-separator', '^---$');
+        section.setAttribute('data-separator-vertical', '^--$');
+        section.setAttribute('data-separator-notes', '^Note:');
+        section.setAttribute('data-charset', 'utf-8');
+        section.innerHTML = `<textarea data-template>${md}</textarea>`;
+        document.querySelector('.slides').appendChild(section);
+
+        const deck = new Reveal({
+          plugins: [ Markdown ],
+          hash: true
+        });
+        deck.initialize();
+      });
+  </script>
+</body>
+</html>
